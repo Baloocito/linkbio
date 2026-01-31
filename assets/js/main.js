@@ -1,10 +1,3 @@
-import { db } from './firebase.js'
-import {
-  collection,
-  addDoc,
-  serverTimestamp,
-} from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js'
-
 document.querySelectorAll('.comprar-btn').forEach((button) => {
   button.addEventListener('click', async () => {
     const producto = button.dataset.producto
@@ -40,5 +33,37 @@ document.addEventListener('DOMContentLoaded', () => {
       // Redirección directa a Mercado Pago
       window.location.href = linkPago
     })
+  })
+})
+
+document.querySelectorAll('[data-open-modal]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const modalId = btn.getAttribute('data-open-modal')
+    const modal = document.getElementById(modalId)
+    const box = modal.querySelector('.relative')
+
+    modal.classList.remove('hidden')
+    modal.classList.add('flex')
+
+    // fuerza repaint real
+    box.getBoundingClientRect()
+
+    box.classList.remove('scale-90', 'opacity-0')
+    box.classList.add('scale-100', 'opacity-100')
+  })
+})
+
+// Cerrar modal
+document.querySelectorAll('[data-close-modal]').forEach((el) => {
+  el.addEventListener('click', () => {
+    const modal = el.closest('.fixed')
+    const box = modal.querySelector('.relative')
+
+    box.classList.add('scale-90', 'opacity-0')
+
+    setTimeout(() => {
+      modal.classList.add('hidden')
+      modal.classList.remove('flex')
+    }, 400)
   })
 })

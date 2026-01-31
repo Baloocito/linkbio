@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TopinGames | Kits para TikTok Live</title>
+    <link rel="stylesheet" href="/dist/styles.css" />
+  </head>
+
+  <body class="bg-black text-white">
+    <!-- HERO -->
+    <section id="hero" class="mx-auto max-w-md px-4 pt-10 pb-8 text-center">
+      <h1 class="text-2xl font-extrabold leading-tight">
+        Vende más en TikTok Live
+        <span class="block text-teal">
+          viéndote y escuchándote profesional
+        </span>
+      </h1>
+
+      <p class="mt-4 text-sm text-gray-400">
+        Kits listos para usar desde tu celular. Sin estudio. Sin enredos. Sin
+        complicaciones.
+      </p>
+
+      <a
+        href="#products"
+        class="mt-6 block w-full rounded-xl bg-magenta py-3 text-lg font-bold text-white transition-transform duration-150 ease-out active:scale-95"
+      >
+        Ver kits disponibles
+      </a>
+
+      <p class="mt-3 text-xs text-gray-500">
+        Envíos a todo Chile · Pago seguro
+      </p>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="mx-auto max-w-md space-y-16 px-4 pb-12">
+      <!-- KIT BÁSICO -->
+      <article
+        class="rounded-2xl bg-zinc-950 p-5 shadow-[0_0_25px_rgba(18,161,154,0.15)]"
+      >
+        <img
+          src="/assets/img/kit-grande.webp"
+          alt="Kit Influencer Básico"
+          class="mb-4 rounded-xl"
+        />
+
+        <span
+          class="mb-3 inline-block rounded-full border border-teal px-3 py-1 text-xs text-teal"
+        >
+          Ideal para empezar
+        </span>
+
+        <h2 class="text-xl font-bold text-white">Kit Influencer Básico</h2>
+
+        <p class="mt-1 text-2xl font-extrabold text-teal">$XX.XXX CLP</p>
+
+        <ul class="mt-4 space-y-2 text-sm text-gray-300">
+          <li>✔️ Te ves mejor en cámara</li>
+          <li>✔️ Audio claro desde el celular</li>
+          <li>✔️ Setup rápido y simple</li>
+        </ul>
+
+        <button
+          class="comprar-btn mt-6 w-full rounded-xl bg-magenta py-4 text-lg font-bold text-white transition-transform duration-150 ease-out active:scale-95"
+        >
+          Quiero este kit
+        </button>
+      </article>
+
+      <!-- KIT PRO -->
+      <article
+        class="relative rounded-2xl bg-zinc-950 p-6 shadow-[0_0_40px_rgba(18,161,154,0.35)]"
+      >
+        <!-- Badge flotante -->
+        <span
+          class="absolute -top-3 left-4 rounded-full bg-magenta px-4 py-1 text-xs font-bold text-white shadow-lg"
+        >
+          ⭐ Más vendido
+        </span>
+
+        <img
+          src="/assets/img/kit-grande.webp"
+          alt="Kit Influencer Pro"
+          class="mb-5 rounded-xl"
+        />
+
+        <h2 class="text-2xl font-extrabold text-white">Kit Influencer Pro</h2>
+
+        <p class="mt-1 text-3xl font-extrabold text-teal">$XX.XXX CLP</p>
+
+        <ul class="mt-4 space-y-2 text-sm text-gray-300">
+          <li>✔️ Iluminación potente y pareja</li>
+          <li>✔️ Audio claro incluso hablando bajo</li>
+          <li>✔️ Ideal para lives largos</li>
+          <li>✔️ Se ve realmente profesional</li>
+        </ul>
+        <button
+          class="mt-4 w-full rounded-xl border border-teal py-2 text-sm font-semibold text-teal transition active:scale-95"
+          data-open-modal="modal-kit-pro"
+        >
+          Ver qué incluye
+        </button>
+        <button
+          class="comprar-btn mt-6 w-full rounded-xl bg-magenta py-4 text-lg font-bold text-white transition-transform duration-150 ease-out active:scale-95"
+        >
+          Quiero este kit
+        </button>
+      </article>
+      <!-- MODAL KIT PRO -->
+      <div
+        id="modal-kit-pro"
+        class="fixed inset-0 z-50 hidden flex justify-center px-4"
+      >
+        <!-- Fondo -->
+        <div
+          class="absolute inset-0 bg-black/80 backdrop-blur-sm"
+          data-close-modal
+        ></div>
+
+        <!-- Caja modal -->
+        <div
+          class="relative w-full max-w-md opacity-0 scale-95 rounded-2xl bg-zinc-950 p-6 shadow-[0_0_80px_rgba(230,0,126,0.45)] transition-all duration-400 ease-out max-h-[85vh] overflow-y-auto"
+        >
+          <!-- Cerrar -->
+          <button
+            class="absolute right-4 top-4 text-gray-400 hover:text-white"
+            data-close-modal
+          >
+            ✕
+          </button>
+
+          <!-- Contenido -->
+          <h3 class="text-2xl font-extrabold text-white mb-3">
+            Kit Influencer Pro
+          </h3>
+
+          <img
+            src="/assets/img/kit-grande.webp"
+            alt="Kit Influencer Pro"
+            class="mb-4 rounded-xl"
+          />
+
+          <p class="mb-2 text-lg font-bold text-teal">$XX.XXX CLP</p>
+
+          <ul class="mb-5 space-y-2 text-sm text-gray-300">
+            <li>✔️ Aro de luz profesional (iluminación pareja)</li>
+            <li>✔️ Micrófono de alta claridad</li>
+            <li>✔️ Soporte estable para sesiones largas</li>
+            <li>✔️ Ideal para ventas constantes en live</li>
+          </ul>
+
+          <button
+            class="w-full rounded-xl bg-magenta py-4 text-lg font-bold text-white transition active:scale-95"
+          >
+            Comprar este kit
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mt-8 pb-6 text-center text-xs text-gray-500">
+      TopinGames · Envíos a todo Chile 🇨🇱
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>

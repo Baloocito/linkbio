@@ -3,45 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kit Influencer para TikTok Live</title>
+    <title>TopinGames | Kits para TikTok Live</title>
     <link rel="stylesheet" href="/dist/styles.css" />
   </head>
 
-  <body
-    class="bg-black text-white min-h-screen flex items-center justify-center"
-  >
-    <main class="w-full max-w-md px-4 space-y-4 text-center">
-      <!-- Marca -->
-      <header class="mb-6">
-        <h1 class="text-2xl font-bold">Kit Influencer</h1>
-        <p class="text-gray-400 text-sm">
-          Todo para vender mejor en TikTok Live
-        </p>
-      </header>
+  <body class="bg-black text-white min-h-screen">
+    <main
+      class="mx-auto flex min-h-screen max-w-md flex-col items-center px-4 pt-10"
+    >
+      <!-- LOGO -->
+      <img src="./assets/img/logo.png" alt="TopinGames" class="mb-6 w-28" />
 
-      <!-- Botonera -->
-      <nav class="space-y-3">
-        <a href="./src/tienda.html" class="btn-primary"> 🛒 Tienda </a>
+      <!-- CLAIM -->
+      <h1 class="text-center text-xl font-bold leading-tight">
+        Vende más en TikTok Live
+        <span class="block text-teal"> desde tu celular </span>
+      </h1>
 
-        <a href="./src/tutoriales.html" class="btn-secondary">
-          🎥 Tutoriales
+      <p class="mt-3 text-center text-sm text-gray-400">
+        Kits listos para creators, streamers y vendedores en vivo
+      </p>
+
+      <!-- CTA PRINCIPAL -->
+      <a
+        href="/src/pages/tienda.html"
+        class="mt-8 block w-full rounded-xl bg-magenta px-4 py-4 text-center text-lg font-bold text-white transition hover:scale-[1.02]"
+      >
+        🛒 Ir a la tienda
+      </a>
+
+      <!-- ACCESOS SECUNDARIOS -->
+      <div class="mt-6 w-full space-y-4">
+        <a
+          href="#"
+          class="block w-full rounded-xl border-2 border-teal px-4 py-4 text-center transition hover:bg-teal/10"
+        >
+          <span class="block text-lg font-bold">🎥 Tutoriales</span>
+          <span class="block text-sm text-gray-400">
+            Aprende a usar tu kit y se mejor en live
+          </span>
         </a>
 
-        <a href="https://www.tiktok.com/@tucuenta" class="btn-secondary">
-          🎵 TikTok
+        <a
+          href="https://www.tiktok.com/@topingames"
+          target="_blank"
+          class="block w-full rounded-xl border border-gray-700 px-4 py-4 text-center transition hover:border-teal"
+        >
+          <span class="block text-lg font-bold">📱 TikTok</span>
+          <span class="block text-sm text-gray-400">
+            Lives, tips y ofertas
+          </span>
         </a>
+      </div>
 
-        <a href="https://www.instagram.com/tucuenta" class="btn-secondary">
-          📸 Instagram
-        </a>
-
-        <a href="./src/concursos.html" class="btn-secondary"> 🎁 Concursos </a>
-      </nav>
-
-      <!-- Footer -->
-      <footer class="pt-6 text-xs text-gray-500">Envíos a todo Chile 🇨🇱</footer>
-
-      <script src="./js/main.js"></script>
+      <!-- FOOTER -->
+      <footer class="mt-12 mb-4 pb-6 text-center text-xs text-gray-500">
+        TopinGames · Envíos a todo Chile 🇨🇱
+      </footer>
     </main>
   </body>
 </html>
