@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gracias por tu compra</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body
+    class="bg-black text-white flex items-center justify-center min-h-screen px-4"
+  >
+    <main class="text-center max-w-md w-full">
+      <!-- Título -->
+      <h1 class="text-3xl font-extrabold text-green-400">¡Compra realizada!</h1>
+
+      <!-- Mensaje principal -->
+      <p class="mt-4 text-gray-300 text-base">
+        Tu pedido fue recibido correctamente.<br />
+        Estás a un paso de coordinar el envío.
+      </p>
+
+      <!-- CTA WhatsApp -->
+      <a
+        href="https://wa.me/569XXXXXXXX?text=Hola,%20acabo%20de%20comprar%20el%20Kit%20Influencer%20y%20quiero%20coordinar%20el%20env%C3%ADo."
+        class="inline-block mt-6 w-full bg-green-500 text-black font-bold py-3 rounded-lg text-lg"
+      >
+        Confirmar por WhatsApp
+      </a>
+
+      <!-- Micro confianza -->
+      <p class="mt-4 text-xs text-gray-400">
+        Te responderemos a la brevedad.<br />
+        Envíos a todo Chile 🇨🇱
+      </p>
+    </main>
+
+    <!-- Tailwind config opcional -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: '#22c55e',
+            },
+          },
+        },
+      }
+    </script>
+  </body>
+</html>
