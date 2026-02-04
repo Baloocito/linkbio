@@ -9,159 +9,280 @@
 
   <body class="bg-black text-white">
     <!-- HERO -->
-    <section id="hero" class="mx-auto max-w-md px-4 pt-10 pb-8 text-center">
-      <h1 class="text-2xl font-extrabold leading-tight">
-        Vende más en TikTok Live
-        <span class="block text-teal">
-          viéndote y escuchándote profesional
-        </span>
+    <section
+      id="hero"
+      class="mx-auto max-w-md px-4 pt-10 pb-8 text-center opacity-0"
+    >
+      <!-- LOGO -->
+      <img
+        src="/assets/img/logo.png"
+        alt="TopinGames"
+        class="mx-auto mb-4 w-24 drop-shadow-[0_0_25px_rgba(18,161,154,0.35)]"
+      />
+
+      <!-- TITULO -->
+      <h1 class="text-3xl font-extrabold leading-tight text-white">
+        TopinGames
       </h1>
 
-      <p class="mt-4 text-sm text-gray-400">
-        Kits listos para usar desde tu celular. Sin estudio. Sin enredos. Sin
-        complicaciones.
+      <!-- SUBTEXTO -->
+      <p class="mt-2 text-sm text-gray-400">
+        Kits profesionales para vender en TikTok Live
       </p>
 
-      <a
-        href="#products"
-        class="mt-6 block w-full rounded-xl bg-magenta py-3 text-lg font-bold text-white transition-transform duration-150 ease-out active:scale-95"
-      >
-        Ver kits disponibles
-      </a>
+      <!-- ICONOS RRSS -->
+      <div class="mt-6 flex justify-center gap-4">
+        <!-- TikTok -->
+        <a
+          href="https://www.tiktok.com/@tucuenta"
+          target="_blank"
+          aria-label="TikTok"
+          class="flex h-12 w-12 items-center justify-center rounded-full border border-magenta bg-black shadow-[0_0_20px_rgba(230,0,126,0.45)] transition-all duration-200 ease-out active:scale-95"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="h-6 w-6 text-white"
+          >
+            <path
+              d="M12.94 2h3.06c.23 2.03 1.35 3.88 3.06 4.83v3.11c-1.79.06-3.54-.52-4.94-1.56v6.53c0 3.38-2.74 6.12-6.12 6.12S2.88 18.29 2.88 14.91c0-3.25 2.55-5.9 5.77-6.1v3.16c-1.03.19-1.82 1.1-1.82 2.2 0 1.24 1 2.24 2.24 2.24s2.24-1 2.24-2.24V2z"
+            />
+          </svg>
+        </a>
 
-      <p class="mt-3 text-xs text-gray-500">
-        Envíos a todo Chile · Pago seguro
-      </p>
+        <!-- Instagram -->
+        <a
+          href="https://www.instagram.com/tucuenta"
+          target="_blank"
+          aria-label="Instagram"
+          class="flex h-12 w-12 items-center justify-center rounded-full border border-teal bg-black shadow-[0_0_20px_rgba(18,161,154,0.45)] transition-all duration-200 ease-out active:scale-95"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="h-6 w-6 text-white"
+          >
+            <path
+              d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zm0 7.3A2.8 2.8 0 1 1 14.8 12 2.8 2.8 0 0 1 12 14.8zm4.75-7.9a1.05 1.05 0 1 0 1.05 1.05 1.05 1.05 0 0 0-1.05-1.05z"
+            />
+          </svg>
+        </a>
+
+        <!-- WhatsApp -->
+        <a
+          href="https://wa.me/569XXXXXXXX"
+          target="_blank"
+          aria-label="WhatsApp"
+          class="flex h-12 w-12 items-center justify-center rounded-full border border-teal bg-black shadow-[0_0_20px_rgba(18,161,154,0.45)] transition-all duration-200 ease-out active:scale-95"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <g clip-path="url(#a)">
+              <path
+                fill="#ffffff"
+                d="m.057 24 1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24Zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.89 9.884 0 2.225.652 3.891 1.747 5.634l-1 3.648 3.743-.981Zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.67.149-.197.297-.767.967-.94 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.15-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.67-1.611-.916-2.206-.242-.579-.487-.501-.67-.51l-.57-.01c-.197 0-.52.074-.791.372-.272.298-1.04 1.016-1.04 2.479s1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.57-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414Z"
+              />
+            </g>
+            <defs>
+              <clipPath id="a">
+                <path fill="#fff" d="M0 0h24v24H0z" />
+              </clipPath>
+            </defs>
+          </svg>
+        </a>
+      </div>
     </section>
 
     <!-- PRODUCTS -->
-    <section id="products" class="mx-auto max-w-md space-y-16 px-4 pb-12">
+    <section
+      id="products"
+      class="mx-auto max-w-md space-y-16 px-4 pb-12 opacity-0"
+    >
       <!-- KIT BÁSICO -->
-      <article
-        class="rounded-2xl bg-zinc-950 p-5 shadow-[0_0_25px_rgba(18,161,154,0.15)]"
+      <article>
+        <button
+          class="w-full rounded-full border border-teal bg-black px-6 py-4 text-left text-white shadow-[0_0_30px_rgba(18,161,154,0.35)] transition-all duration-200 ease-out active:scale-95"
+          data-open-modal="modal-kit-basico"
+        >
+          <div class="flex items-center justify-between">
+            <span class="text-base font-semibold"> Comprar Kit Básico </span>
+            <span class="text-base font-extrabold text-teal"> $34.990 </span>
+          </div>
+        </button>
+      </article>
+
+      <!-- KIT PRO -->
+      <article class="relative">
+        <!-- Badge opcional -->
+        <span
+          class="absolute -top-2 left-6 z-10 rounded-full bg-magenta px-3 py-1 text-[10px] font-bold text-white"
+        >
+          ⭐ Más vendido
+        </span>
+
+        <button
+          class="w-full rounded-full border border-magenta bg-black px-6 py-4 text-left text-white shadow-[0_0_35px_rgba(230,0,126,0.45)] transition-all duration-200 ease-out active:scale-95"
+          data-open-modal="modal-kit-pro"
+        >
+          <div class="flex items-center justify-between">
+            <span class="text-base font-semibold"> Comprar Kit Pro </span>
+            <span class="text-base font-extrabold text-magenta"> $39.990 </span>
+          </div>
+        </button>
+      </article>
+    </section>
+
+    <!-- MODAL KIT BÁSICO -->
+    <div
+      id="modal-kit-basico"
+      class="fixed inset-0 z-[999] hidden flex items-center justify-center px-4"
+    >
+      <!-- Fondo -->
+      <div
+        class="absolute inset-0 bg-black/80 backdrop-blur-sm"
+        data-close-modal
+      ></div>
+
+      <!-- Caja modal -->
+      <div
+        class="modal-box relative w-full max-w-md opacity-0 scale-95 rounded-2xl bg-zinc-950 p-6 shadow-[0_0_80px_rgba(18,161,154,0.45)] transition-all duration-400 ease-out max-h-[90vh] overflow-y-auto"
       >
+        <!-- Cerrar -->
+        <button
+          class="absolute right-4 top-4 text-gray-400 hover:text-white"
+          data-close-modal
+        >
+          ✕
+        </button>
+
+        <!-- Título -->
+        <h3 class="mb-1 text-2xl font-extrabold text-white">
+          Kit Influencer Básico
+        </h3>
+        <p class="mb-4 text-sm text-gray-400">
+          Lo mínimo necesario para empezar en TikTok Live
+        </p>
+
+        <!-- Imagen -->
         <img
           src="/assets/img/kit-grande.webp"
           alt="Kit Influencer Básico"
           class="mb-4 rounded-xl"
         />
 
-        <span
-          class="mb-3 inline-block rounded-full border border-teal px-3 py-1 text-xs text-teal"
-        >
-          Ideal para empezar
-        </span>
+        <!-- Precio -->
+        <p class="mb-4 text-2xl font-extrabold text-teal">$34.990 CLP</p>
 
-        <h2 class="text-xl font-bold text-white">Kit Influencer Básico</h2>
+        <!-- Incluye -->
+        <div class="mb-4">
+          <p class="mb-2 text-sm font-semibold text-white">Este kit incluye:</p>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li>✔️ Aro de luz básico con trípode</li>
+            <li>✔️ Micrófono lavalier con cable</li>
+            <li>✔️ Soporte para celular</li>
+          </ul>
+        </div>
 
-        <p class="mt-1 text-2xl font-extrabold text-teal">$XX.XXX CLP</p>
+        <!-- Aclaración -->
+        <p class="mb-5 text-xs text-gray-400">
+          Recomendado si haces lives cortos o estás probando vender.
+        </p>
 
-        <ul class="mt-4 space-y-2 text-sm text-gray-300">
-          <li>✔️ Te ves mejor en cámara</li>
-          <li>✔️ Audio claro desde el celular</li>
-          <li>✔️ Setup rápido y simple</li>
-        </ul>
-
+        <!-- CTA -->
         <button
-          class="comprar-btn mt-6 w-full rounded-xl bg-magenta py-4 text-lg font-bold text-white transition-transform duration-150 ease-out active:scale-95"
+          class="w-full rounded-xl bg-magenta py-4 text-lg font-bold text-white transition active:scale-95"
         >
-          Quiero este kit
+          Comprar kit básico
         </button>
-      </article>
+      </div>
+    </div>
 
-      <!-- KIT PRO -->
-      <article
-        class="relative rounded-2xl bg-zinc-950 p-6 shadow-[0_0_40px_rgba(18,161,154,0.35)]"
+    <!-- MODAL KIT PRO -->
+    <div
+      id="modal-kit-pro"
+      class="fixed inset-0 z-50 hidden flex items-center justify-center px-4"
+    >
+      <!-- Fondo -->
+      <div
+        class="absolute inset-0 bg-black/80 backdrop-blur-sm"
+        data-close-modal
+      ></div>
+
+      <!-- Caja modal -->
+      <div
+        class="relative w-full max-w-[92vw] h-[88vh] opacity-0 scale-95 animate-modalIn rounded-2xl bg-zinc-950 p-6 shadow-[0_0_100px_rgba(230,0,126,0.5)] overflow-y-auto"
       >
-        <!-- Badge flotante -->
-        <span
-          class="absolute -top-3 left-4 rounded-full bg-magenta px-4 py-1 text-xs font-bold text-white shadow-lg"
+        <!-- Cerrar -->
+        <button
+          class="absolute right-4 top-4 text-gray-400 hover:text-white"
+          data-close-modal
         >
-          ⭐ Más vendido
-        </span>
+          ✕
+        </button>
 
+        <!-- Título -->
+        <h3 class="text-2xl font-extrabold text-white mb-1">
+          Kit Influencer Pro
+        </h3>
+        <p class="text-sm text-gray-400 mb-4">
+          Pensado para vender todos los días en live
+        </p>
+
+        <!-- Imagen -->
         <img
           src="/assets/img/kit-grande.webp"
           alt="Kit Influencer Pro"
-          class="mb-5 rounded-xl"
+          class="mb-4 rounded-xl"
         />
 
-        <h2 class="text-2xl font-extrabold text-white">Kit Influencer Pro</h2>
+        <!-- Precio -->
+        <p class="mb-4 text-2xl font-extrabold text-teal">$39.990 CLP</p>
 
-        <p class="mt-1 text-3xl font-extrabold text-teal">$XX.XXX CLP</p>
-
-        <ul class="mt-4 space-y-2 text-sm text-gray-300">
-          <li>✔️ Iluminación potente y pareja</li>
-          <li>✔️ Audio claro incluso hablando bajo</li>
-          <li>✔️ Ideal para lives largos</li>
-          <li>✔️ Se ve realmente profesional</li>
-        </ul>
-        <button
-          class="mt-4 w-full rounded-xl border border-teal py-2 text-sm font-semibold text-teal transition active:scale-95"
-          data-open-modal="modal-kit-pro"
-        >
-          Ver qué incluye
-        </button>
-        <button
-          class="comprar-btn mt-6 w-full rounded-xl bg-magenta py-4 text-lg font-bold text-white transition-transform duration-150 ease-out active:scale-95"
-        >
-          Quiero este kit
-        </button>
-      </article>
-      <!-- MODAL KIT PRO -->
-      <div
-        id="modal-kit-pro"
-        class="fixed inset-0 z-50 hidden flex justify-center px-4"
-      >
-        <!-- Fondo -->
-        <div
-          class="absolute inset-0 bg-black/80 backdrop-blur-sm"
-          data-close-modal
-        ></div>
-
-        <!-- Caja modal -->
-        <div
-          class="relative w-full max-w-md opacity-0 scale-95 rounded-2xl bg-zinc-950 p-6 shadow-[0_0_80px_rgba(230,0,126,0.45)] transition-all duration-400 ease-out max-h-[85vh] overflow-y-auto"
-        >
-          <!-- Cerrar -->
-          <button
-            class="absolute right-4 top-4 text-gray-400 hover:text-white"
-            data-close-modal
-          >
-            ✕
-          </button>
-
-          <!-- Contenido -->
-          <h3 class="text-2xl font-extrabold text-white mb-3">
-            Kit Influencer Pro
-          </h3>
-
-          <img
-            src="/assets/img/kit-grande.webp"
-            alt="Kit Influencer Pro"
-            class="mb-4 rounded-xl"
-          />
-
-          <p class="mb-2 text-lg font-bold text-teal">$XX.XXX CLP</p>
-
-          <ul class="mb-5 space-y-2 text-sm text-gray-300">
-            <li>✔️ Aro de luz profesional (iluminación pareja)</li>
-            <li>✔️ Micrófono de alta claridad</li>
-            <li>✔️ Soporte estable para sesiones largas</li>
-            <li>✔️ Ideal para ventas constantes en live</li>
+        <!-- Incluye -->
+        <div class="mb-4">
+          <p class="mb-2 text-sm font-semibold text-white">Este kit incluye:</p>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li>✔️ Aro de luz de mayor potencia</li>
+            <li>✔️ Micrófono de mejor sensibilidad</li>
+            <li>✔️ Trípode más estable</li>
+            <li>✔️ Soporte reforzado para celular</li>
           </ul>
-
-          <button
-            class="w-full rounded-xl bg-magenta py-4 text-lg font-bold text-white transition active:scale-95"
-          >
-            Comprar este kit
-          </button>
         </div>
-      </div>
-    </section>
 
-    <footer class="mt-8 pb-6 text-center text-xs text-gray-500">
-      TopinGames · Envíos a todo Chile 🇨🇱
+        <!-- Diferencia explícita -->
+        <div
+          class="mb-5 rounded-xl border border-magenta/40 bg-black/40 p-3 text-xs text-gray-300"
+        >
+          <strong class="text-magenta">¿Por qué cuesta más?</strong><br />
+          Mejor iluminación, mejor audio y mayor estabilidad para lives largos.
+        </div>
+
+        <!-- CTA -->
+        <button
+          class="w-full rounded-xl bg-magenta py-4 text-lg font-bold text-white transition active:scale-95"
+        >
+          Quiero el kit pro
+        </button>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="mt-12 pb-6 text-center text-xs text-gray-500">
+      <p>TopinGames · Envíos a todo Chile 🇨🇱</p>
+
+      <a
+        href="/src/pages/terminos.html"
+        class="mt-2 inline-block text-gray-400 underline-offset-2 transition hover:text-magenta hover:underline"
+      >
+        Términos y condiciones
+      </a>
     </footer>
 
     <script src="/assets/js/main.js"></script>

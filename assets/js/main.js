@@ -67,3 +67,58 @@ document.querySelectorAll('[data-close-modal]').forEach((el) => {
     }, 400)
   })
 })
+
+document.addEventListener('DOMContentLoaded', () => {
+  const hero = document.getElementById('hero')
+  const products = document.getElementById('products')
+  const logo = hero.querySelector('img')
+
+  // Si el logo ya está cacheado
+  if (logo.complete) {
+    startAnimations()
+  } else {
+    logo.addEventListener('load', startAnimations)
+  }
+
+  function startAnimations() {
+    // HERO
+    hero.classList.add('animate-fadeSlideUp')
+
+    // PRODUCTS (delay real, no visual falso)
+    setTimeout(() => {
+      products.classList.add('animate-fadeSlideUp')
+    }, 400)
+  }
+})
+const openButtons = document.querySelectorAll('[data-open-modal]')
+const closeButtons = document.querySelectorAll('[data-close-modal]')
+
+openButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const modal = document.getElementById(btn.dataset.openModal)
+    const box = modal.querySelector('.modal-box')
+
+    modal.classList.remove('hidden')
+
+    // Forzar repaint (clave para animación limpia)
+    requestAnimationFrame(() => {
+      box.classList.add('modal-open')
+    })
+
+    document.body.style.overflow = 'hidden'
+  })
+})
+
+closeButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const modal = btn.closest('[id^="modal"]')
+    const box = modal.querySelector('.modal-box')
+
+    box.classList.remove('modal-open')
+
+    setTimeout(() => {
+      modal.classList.add('hidden')
+      document.body.style.overflow = ''
+    }, 300)
+  })
+})
