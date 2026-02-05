@@ -29,6 +29,7 @@ function initShoppingLogic() {
     if (window.gtag) {
       gtag('event', 'click_comprar', {
         producto: producto,
+        origen: 'modal',
       })
     }
 
@@ -75,7 +76,8 @@ function initModalLogic() {
     // 📊 EVENTO GA4 — interés real
     if (window.gtag) {
       gtag('event', 'open_modal', {
-        modal: modalId,
+        modal_id: modalId,
+        producto: producto,
       })
     }
 
