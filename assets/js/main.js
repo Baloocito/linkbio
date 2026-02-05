@@ -60,20 +60,23 @@ async function saveLead(producto) {
 }
 
 // --- LÓGICA DE MODALES (Unificada) ---
+// --- LÓGICA DE MODALES (Unificada) ---
 function initModalLogic() {
   // ABRIR MODAL
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-open-modal]')
     if (!btn) return
 
-    const modalId = btn.getAttribute('data-open-modal')
+    const modalId = btn.dataset.openModal
+    const producto = btn.dataset.producto || 'desconocido'
+
     const modal = document.getElementById(modalId)
     if (!modal) return
 
     const box = modal.querySelector('.modal-box')
     if (!box) return
 
-    // 📊 EVENTO GA4 — interés real
+    // 📊 EVENTO GA4 — interés real (FIXED)
     if (window.gtag) {
       gtag('event', 'open_modal', {
         modal_id: modalId,
