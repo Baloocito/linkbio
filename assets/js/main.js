@@ -18,25 +18,34 @@ function initShoppingLogic() {
     if (!btn) return
 
     const linkPago = btn.dataset.linkPago
+    const producto = btn.dataset.producto || 'desconocido'
 
     if (!linkPago) {
       console.error('No hay link de pago definido')
       return
     }
 
-    // 🔥 REDIRECCIÓN DIRECTA (core del negocio)
+    // 📊 EVENTO GA4 — intención de compra
+    if (window.gtag) {
+      gtag('event', 'click_comprar', {
+        producto: producto,
+      })
+    }
+
+    // 🔥 REDIRECCIÓN DIRECTA
     window.location.href = linkPago
 
     // 🧠 Lead opcional (cuando Firebase esté listo)
     if (typeof saveLead === 'function') {
       try {
-        saveLead(btn.dataset.producto)
-      } catch (e) {
+        saveLead(producto)
+      } catch {
         console.warn('Lead no guardado (Firebase no activo)')
       }
     }
   })
 }
+
 async function saveLead(producto) {
   try {
     await addDoc(collection(db, 'leads'), {
@@ -63,11 +72,17 @@ function initModalLogic() {
     const box = modal.querySelector('.modal-box')
     if (!box) return
 
+    // 📊 EVENTO GA4 — interés real
+    if (window.gtag) {
+      gtag('event', 'open_modal', {
+        modal: modalId,
+      })
+    }
+
     modal.classList.remove('hidden')
     modal.classList.add('flex')
     document.body.style.overflow = 'hidden'
 
-    // Forzar repaint para que la animación funcione
     requestAnimationFrame(() => {
       box.classList.remove('opacity-0', 'scale-95')
       box.classList.add('opacity-100', 'scale-100')
@@ -85,7 +100,6 @@ function initModalLogic() {
     const box = modal.querySelector('.modal-box')
     if (!box) return
 
-    // Animación de salida
     box.classList.remove('opacity-100', 'scale-100')
     box.classList.add('opacity-0', 'scale-95')
 
@@ -96,6 +110,7 @@ function initModalLogic() {
     }, CONFIG.animationDuration)
   })
 }
+
 // --- ANIMACIONES DE CARGA (Hero & Logo) ---
 function initAnimations() {
   const hero = document.getElementById('hero')
