@@ -7,18 +7,22 @@
     <link rel="stylesheet" href="/dist/styles.css" />
   </head>
 
-  <body class="bg-black text-white">
+  <body class="bg-black text-white overscroll-none scrollbar-none">
     <!-- HERO -->
     <section
       id="hero"
       class="mx-auto max-w-md px-4 pt-10 pb-8 text-center opacity-0"
     >
       <!-- LOGO -->
-      <img
-        src="/assets/img/logo.png"
-        alt="TopinGames"
-        class="mx-auto mb-4 w-24 drop-shadow-[0_0_25px_rgba(18,161,154,0.35)]"
-      />
+      <div class="flex justify-center mb-4">
+        <a href="/" aria-label="Volver al inicio">
+          <img
+            src="/assets/img/logo.png"
+            alt="TopinGames"
+            class="w-28 cursor-pointer"
+          />
+        </a>
+      </div>
 
       <!-- TITULO -->
       <h1 class="text-3xl font-extrabold leading-tight text-white">
@@ -34,7 +38,7 @@
       <div class="mt-6 flex justify-center gap-4">
         <!-- TikTok -->
         <a
-          href="https://www.tiktok.com/@tucuenta"
+          href="https://www.tiktok.com/@topingames"
           target="_blank"
           aria-label="TikTok"
           class="flex h-12 w-12 items-center justify-center rounded-full border border-magenta bg-black shadow-[0_0_20px_rgba(230,0,126,0.45)] transition-all duration-200 ease-out active:scale-95"
@@ -53,7 +57,7 @@
 
         <!-- Instagram -->
         <a
-          href="https://www.instagram.com/tucuenta"
+          href="https://www.instagram.com/topingames.store"
           target="_blank"
           aria-label="Instagram"
           class="flex h-12 w-12 items-center justify-center rounded-full border border-teal bg-black shadow-[0_0_20px_rgba(18,161,154,0.45)] transition-all duration-200 ease-out active:scale-95"
@@ -72,7 +76,7 @@
 
         <!-- WhatsApp -->
         <a
-          href="https://wa.me/569XXXXXXXX"
+          href="https://wa.me/56933611786"
           target="_blank"
           aria-label="WhatsApp"
           class="flex h-12 w-12 items-center justify-center rounded-full border border-teal bg-black shadow-[0_0_20px_rgba(18,161,154,0.45)] transition-all duration-200 ease-out active:scale-95"
@@ -150,9 +154,8 @@
         data-close-modal
       ></div>
 
-      <!-- Caja modal -->
       <div
-        class="modal-box relative w-full max-w-md opacity-0 scale-95 rounded-2xl bg-zinc-950 p-6 shadow-[0_0_80px_rgba(18,161,154,0.45)] transition-all duration-400 ease-out max-h-[90vh] overflow-y-auto"
+        class="modal-box relative w-full max-w-md opacity-0 scale-95 scrollbar-none rounded-2xl bg-zinc-950 p-6 shadow-[0_0_80px_rgba(18,161,154,0.45)] transition-all duration-400 ease-out max-h-[90vh] overflow-y-auto"
       >
         <!-- Cerrar -->
         <button
@@ -197,7 +200,9 @@
 
         <!-- CTA -->
         <button
-          class="w-full rounded-xl bg-magenta py-4 text-lg font-bold text-white transition active:scale-95"
+          class="comprar-btn w-full rounded-xl bg-magenta py-4 text-lg font-bold text-white transition active:scale-95"
+          data-producto="kit-basico"
+          data-link-pago="https://mpago.li/1Edg13f"
         >
           Comprar kit básico
         </button>
@@ -207,7 +212,7 @@
     <!-- MODAL KIT PRO -->
     <div
       id="modal-kit-pro"
-      class="fixed inset-0 z-50 hidden flex items-center justify-center px-4"
+      class="fixed inset-0 z-[999] hidden flex items-center justify-center px-4"
     >
       <!-- Fondo -->
       <div
@@ -217,7 +222,7 @@
 
       <!-- Caja modal -->
       <div
-        class="relative w-full max-w-[92vw] h-[88vh] opacity-0 scale-95 animate-modalIn rounded-2xl bg-zinc-950 p-6 shadow-[0_0_100px_rgba(230,0,126,0.5)] overflow-y-auto"
+        class="modal-box relative scrollbar-none w-full max-w-md opacity-0 scale-95 rounded-2xl bg-zinc-950 p-6 shadow-[0_0_80px_rgba(230,0,126,0.45)] transition-all duration-400 ease-out max-h-[90vh] overflow-y-auto"
       >
         <!-- Cerrar -->
         <button
@@ -266,7 +271,9 @@
 
         <!-- CTA -->
         <button
-          class="w-full rounded-xl bg-magenta py-4 text-lg font-bold text-white transition active:scale-95"
+          class="comprar-btn w-full rounded-xl bg-magenta py-4 text-lg font-bold text-white transition active:scale-95"
+          data-producto="kit-pro"
+          data-link-pago="https://mpago.li/2g9ENed"
         >
           Quiero el kit pro
         </button>

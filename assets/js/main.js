@@ -1,124 +1,121 @@
-document.querySelectorAll('.comprar-btn').forEach((button) => {
-  button.addEventListener('click', async () => {
-    const producto = button.dataset.producto
-    const linkPago = button.dataset.linkPago
+// Configuración y variables globales
+const CONFIG = {
+  animationDuration: 400,
+  modalTransition: 300,
+}
 
-    // Guardar lead (best effort)
-    try {
-      await addDoc(collection(db, 'leads'), {
-        producto_comprado: producto,
-        fecha: serverTimestamp(),
-        origen: 'link-bio',
-      })
-    } catch (error) {
-      console.error('No se pudo guardar el lead', error)
+// --- INICIALIZACIÓN PRINCIPAL ---
+document.addEventListener('DOMContentLoaded', () => {
+  initShoppingLogic()
+  initModalLogic()
+  initAnimations()
+})
+
+// --- LÓGICA DE COMPRA Y LEADS ---
+function initShoppingLogic() {
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.comprar-btn')
+    if (!btn) return
+
+    const linkPago = btn.dataset.linkPago
+
+    if (!linkPago) {
+      console.error('No hay link de pago definido')
+      return
     }
 
-    // Redirección inmediata al pago
+    // 🔥 REDIRECCIÓN DIRECTA (core del negocio)
     window.location.href = linkPago
-  })
-})
-document.addEventListener('DOMContentLoaded', () => {
-  const botonesComprar = document.querySelectorAll('.comprar-btn')
 
-  botonesComprar.forEach((boton) => {
-    boton.addEventListener('click', () => {
-      const linkPago = boton.dataset.linkPago
-
-      if (!linkPago) {
-        console.error('No hay link de pago definido')
-        return
+    // 🧠 Lead opcional (cuando Firebase esté listo)
+    if (typeof saveLead === 'function') {
+      try {
+        saveLead(btn.dataset.producto)
+      } catch (e) {
+        console.warn('Lead no guardado (Firebase no activo)')
       }
-
-      // Redirección directa a Mercado Pago
-      window.location.href = linkPago
-    })
+    }
   })
-})
+}
+async function saveLead(producto) {
+  try {
+    await addDoc(collection(db, 'leads'), {
+      producto_comprado: producto || 'desconocido',
+      fecha: serverTimestamp(),
+      origen: 'link-bio',
+    })
+  } catch (error) {
+    console.error('Error al guardar lead:', error)
+  }
+}
 
-document.querySelectorAll('[data-open-modal]').forEach((btn) => {
-  btn.addEventListener('click', () => {
+// --- LÓGICA DE MODALES (Unificada) ---
+function initModalLogic() {
+  // ABRIR MODAL
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-open-modal]')
+    if (!btn) return
+
     const modalId = btn.getAttribute('data-open-modal')
     const modal = document.getElementById(modalId)
-    const box = modal.querySelector('.relative')
+    if (!modal) return
+
+    const box = modal.querySelector('.modal-box')
+    if (!box) return
 
     modal.classList.remove('hidden')
     modal.classList.add('flex')
+    document.body.style.overflow = 'hidden'
 
-    // fuerza repaint real
-    box.getBoundingClientRect()
-
-    box.classList.remove('scale-90', 'opacity-0')
-    box.classList.add('scale-100', 'opacity-100')
+    // Forzar repaint para que la animación funcione
+    requestAnimationFrame(() => {
+      box.classList.remove('opacity-0', 'scale-95')
+      box.classList.add('opacity-100', 'scale-100')
+    })
   })
-})
 
-// Cerrar modal
-document.querySelectorAll('[data-close-modal]').forEach((el) => {
-  el.addEventListener('click', () => {
-    const modal = el.closest('.fixed')
-    const box = modal.querySelector('.relative')
+  // CERRAR MODAL
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-close-modal]')
+    if (!btn) return
 
-    box.classList.add('scale-90', 'opacity-0')
+    const modal = btn.closest('[id^="modal"]')
+    if (!modal) return
+
+    const box = modal.querySelector('.modal-box')
+    if (!box) return
+
+    // Animación de salida
+    box.classList.remove('opacity-100', 'scale-100')
+    box.classList.add('opacity-0', 'scale-95')
 
     setTimeout(() => {
       modal.classList.add('hidden')
       modal.classList.remove('flex')
-    }, 400)
+      document.body.style.overflow = ''
+    }, CONFIG.animationDuration)
   })
-})
-
-document.addEventListener('DOMContentLoaded', () => {
+}
+// --- ANIMACIONES DE CARGA (Hero & Logo) ---
+function initAnimations() {
   const hero = document.getElementById('hero')
   const products = document.getElementById('products')
+  if (!hero) return
+
   const logo = hero.querySelector('img')
 
-  // Si el logo ya está cacheado
-  if (logo.complete) {
-    startAnimations()
-  } else {
-    logo.addEventListener('load', startAnimations)
-  }
-
-  function startAnimations() {
-    // HERO
+  const start = () => {
     hero.classList.add('animate-fadeSlideUp')
-
-    // PRODUCTS (delay real, no visual falso)
     setTimeout(() => {
-      products.classList.add('animate-fadeSlideUp')
-    }, 400)
+      if (products) products.classList.add('animate-fadeSlideUp')
+    }, CONFIG.animationDuration)
   }
-})
-const openButtons = document.querySelectorAll('[data-open-modal]')
-const closeButtons = document.querySelectorAll('[data-close-modal]')
 
-openButtons.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const modal = document.getElementById(btn.dataset.openModal)
-    const box = modal.querySelector('.modal-box')
-
-    modal.classList.remove('hidden')
-
-    // Forzar repaint (clave para animación limpia)
-    requestAnimationFrame(() => {
-      box.classList.add('modal-open')
-    })
-
-    document.body.style.overflow = 'hidden'
-  })
-})
-
-closeButtons.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const modal = btn.closest('[id^="modal"]')
-    const box = modal.querySelector('.modal-box')
-
-    box.classList.remove('modal-open')
-
-    setTimeout(() => {
-      modal.classList.add('hidden')
-      document.body.style.overflow = ''
-    }, 300)
-  })
-})
+  if (logo && logo.complete) {
+    start()
+  } else if (logo) {
+    logo.addEventListener('load', start)
+  } else {
+    start() // Por si no hay logo
+  }
+}
