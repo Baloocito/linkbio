@@ -1,5 +1,8 @@
-import { db } from './firebase.js'
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
+import { db, serverTimestamp } from './firebase.js'
+import {
+  addDoc,
+  collection,
+} from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js'
 
 // 1. Configuración de productos (Fácil de mantener)
 const KITS_CONFIG = {
