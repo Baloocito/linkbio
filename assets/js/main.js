@@ -60,7 +60,6 @@ async function saveLead(producto) {
 }
 
 // --- LÓGICA DE MODALES (Unificada) ---
-// --- LÓGICA DE MODALES (Unificada) ---
 function initModalLogic() {
   // ABRIR MODAL
   document.addEventListener('click', (e) => {
