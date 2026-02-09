@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/tiendakit",
+      "destination": "/src/pages/tienda.html"
+    },
+    {
+      "source": "/tienda-vape",
+      "destination": "/src/pages/tienda-vape.html"
+    }
+  ]
+}
