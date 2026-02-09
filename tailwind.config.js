@@ -8,6 +8,11 @@ module.exports = {
         teal: '#12A19A',
         black: '#000000',
         white: '#FFFFFF',
+        primary: '#FBBF24', // Color amarillo para la tienda Vape
+        zinc: {
+          900: '#18181b',
+          950: '#09090b',
+        },
       },
       keyframes: {
         fadeSlideUp: {

@@ -1,140 +1,98 @@
-// Configuración y variables globales
 const CONFIG = {
-  animationDuration: 400,
-  modalTransition: 300,
+  animationDuration: 350, // Coincide con modalIn 0.35s
+  leadSource:
+    window.location.pathname.includes('vape') ||
+    window.location.pathname.includes('bateria')
+      ? 'tienda-vape'
+      : 'tienda-kits',
 }
 
-// --- INICIALIZACIÓN PRINCIPAL ---
 document.addEventListener('DOMContentLoaded', () => {
   initShoppingLogic()
   initModalLogic()
   initAnimations()
 })
 
-// --- LÓGICA DE COMPRA Y LEADS ---
 function initShoppingLogic() {
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('.comprar-btn')
     if (!btn) return
 
-    const linkPago = btn.dataset.linkPago
-    const producto = btn.dataset.producto || 'desconocido'
+    const { linkPago, producto } = btn.dataset
 
-    if (!linkPago) {
-      console.error('No hay link de pago definido')
-      return
-    }
-
-    // 📊 EVENTO GA4 — intención de compra
     if (window.gtag) {
       gtag('event', 'click_comprar', {
-        producto: producto,
-        origen: 'modal',
+        item_id: producto,
+        tienda: CONFIG.leadSource,
+        url_pago: linkPago,
       })
     }
 
-    // 🔥 REDIRECCIÓN DIRECTA
-    window.location.href = linkPago
-
-    // 🧠 Lead opcional (cuando Firebase esté listo)
-    if (typeof saveLead === 'function') {
-      try {
-        saveLead(producto)
-      } catch {
-        console.warn('Lead no guardado (Firebase no activo)')
-      }
-    }
+    // Redirección con leve delay para GA4
+    setTimeout(() => {
+      window.location.href = linkPago
+    }, 150)
   })
 }
 
-async function saveLead(producto) {
-  try {
-    await addDoc(collection(db, 'leads'), {
-      producto_comprado: producto || 'desconocido',
-      fecha: serverTimestamp(),
-      origen: 'link-bio',
-    })
-  } catch (error) {
-    console.error('Error al guardar lead:', error)
-  }
-}
-
-// --- LÓGICA DE MODALES (Unificada) ---
 function initModalLogic() {
-  // ABRIR MODAL
+  // Abrir Modal
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-open-modal]')
     if (!btn) return
 
     const modalId = btn.dataset.openModal
-    const producto = btn.dataset.producto || 'desconocido'
-
     const modal = document.getElementById(modalId)
     if (!modal) return
 
     const box = modal.querySelector('.modal-box')
-    if (!box) return
-
-    // 📊 EVENTO GA4 — interés real (FIXED)
-    if (window.gtag) {
-      gtag('event', 'open_modal', {
-        modal_id: modalId,
-        producto: producto,
-      })
-    }
-
     modal.classList.remove('hidden')
     modal.classList.add('flex')
     document.body.style.overflow = 'hidden'
 
-    requestAnimationFrame(() => {
-      box.classList.remove('opacity-0', 'scale-95')
-      box.classList.add('opacity-100', 'scale-100')
-    })
+    // Aplicamos la animación definida en tu Tailwind Config
+    box.classList.add('animate-modalIn')
   })
 
-  // CERRAR MODAL
+  // Cerrar Modal
   document.addEventListener('click', (e) => {
-    const btn = e.target.closest('[data-close-modal]')
-    if (!btn) return
+    const isCloseTrigger = e.target.closest('[data-close-modal]')
+    if (!isCloseTrigger) return
 
-    const modal = btn.closest('[id^="modal"]')
-    if (!modal) return
+    const modal = isCloseTrigger.closest('.fixed')
+    const box = modal?.querySelector('.modal-box')
 
-    const box = modal.querySelector('.modal-box')
-    if (!box) return
-
-    box.classList.remove('opacity-100', 'scale-100')
-    box.classList.add('opacity-0', 'scale-95')
+    if (box) {
+      // Revertimos la animación (fade out rápido)
+      box.style.opacity = '0'
+      box.style.transform = 'scale(0.95)'
+      box.style.transition = 'all 0.2s ease-in'
+    }
 
     setTimeout(() => {
-      modal.classList.add('hidden')
-      modal.classList.remove('flex')
+      if (modal) {
+        modal.classList.add('hidden')
+        modal.classList.remove('flex')
+      }
+      if (box) {
+        box.classList.remove('animate-modalIn')
+        box.style.opacity = ''
+        box.style.transform = ''
+      }
       document.body.style.overflow = ''
-    }, CONFIG.animationDuration)
+    }, 200)
   })
 }
 
-// --- ANIMACIONES DE CARGA (Hero & Logo) ---
 function initAnimations() {
   const hero = document.getElementById('hero')
   const products = document.getElementById('products')
-  if (!hero) return
 
-  const logo = hero.querySelector('img')
-
-  const start = () => {
+  if (hero) {
     hero.classList.add('animate-fadeSlideUp')
+    // Los productos aparecen justo después
     setTimeout(() => {
       if (products) products.classList.add('animate-fadeSlideUp')
-    }, CONFIG.animationDuration)
-  }
-
-  if (logo && logo.complete) {
-    start()
-  } else if (logo) {
-    logo.addEventListener('load', start)
-  } else {
-    start() // Por si no hay logo
+    }, 250)
   }
 }
