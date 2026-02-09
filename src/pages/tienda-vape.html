@@ -13,16 +13,16 @@
       id="hero"
       class="mx-auto max-w-md px-4 pt-10 pb-8 text-center opacity-0"
     >
-      <div class="flex justify-center w-full overflow-hidden">
+      <div class="flex justify-center w-full">
         <a
           href="/"
           aria-label="Volver al inicio"
-          class="block p-4 w-full max-w-lg"
+          class="block w-full max-w-[180px] sm:max-w-[200px]"
         >
           <img
             src="/assets/img/logopipa.png"
             alt="TopinGames"
-            class="w-full h-auto object-cover cursor-pointer transition-transform duration-300 hover:scale-110 scale-125 -my-4"
+            class="w-full h-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-105 -my-6"
           />
         </a>
       </div>
@@ -138,6 +138,7 @@
         </button>
       </article>
     </section>
+
     <div
       id="modal-lapiz"
       class="fixed inset-0 z-[999] hidden flex items-center justify-center px-4"
@@ -152,7 +153,7 @@
       >
         <button
           type="button"
-          class="absolute right-4 top-4 text-gray-400 hover:text-white transition-colors"
+          class="absolute right-4 top-4 z-10 text-gray-400 hover:text-white transition-colors"
           data-close-modal
         >
           ✕
@@ -165,11 +166,15 @@
           Discreta, elegante y funcional.
         </p>
 
-        <img
-          src="/assets/img/lapicito.webp"
-          alt="Batería Lápiz"
-          class="mb-4 rounded-xl w-full h-48 object-cover border border-zinc-800"
-        />
+        <div
+          class="mb-6 w-full aspect-[4/5] overflow-hidden rounded-xl border border-zinc-800"
+        >
+          <img
+            src="/assets/img/lapicito.webp"
+            alt="Batería Lápiz"
+            class="w-full h-full object-cover"
+          />
+        </div>
 
         <p class="mb-4 text-2xl font-extrabold text-primary">$15.000 CLP</p>
 
@@ -212,7 +217,7 @@
       >
         <button
           type="button"
-          class="absolute right-4 top-4 text-gray-400 hover:text-white transition-colors"
+          class="absolute right-4 top-4 z-10 text-gray-400 hover:text-white transition-colors"
           data-close-modal
         >
           ✕
@@ -225,18 +230,21 @@
           Potencia extrema para usuarios exigentes.
         </p>
 
-        <img
-          src="/assets/img/vapecuadrado.jpg"
-          alt="Batería Cuadrada"
-          class="mb-4 rounded-xl w-full h-48 object-cover border border-zinc-800"
-        />
+        <div
+          class="mb-6 w-full aspect-[4/5] overflow-hidden rounded-xl border border-zinc-800"
+        >
+          <img
+            src="/assets/img/vapecuadrado.jpg"
+            alt="Batería Cuadrada"
+            class="w-full h-full object-cover"
+          />
+        </div>
 
         <p class="mb-4 text-2xl font-extrabold text-white">$22.000 CLP</p>
 
         <ul class="mb-6 space-y-2 text-sm text-gray-300">
           <li class="flex items-center">
-            <span class="text-primary mr-2">✔</span> Batería de alta capacidad
-            (2200mAh)
+            <span class="text-primary mr-2">✔</span> 2200mAh de larga duración
           </li>
           <li class="flex items-center">
             <span class="text-primary mr-2">✔</span> Pantalla digital de carga
@@ -245,8 +253,7 @@
             <span class="text-primary mr-2">✔</span> Carga rápida Tipo-C
           </li>
           <li class="flex items-center">
-            <span class="text-primary mr-2">✔</span> Diseño ergonómico
-            anti-caídas
+            <span class="text-primary mr-2">✔</span> Diseño anti-caídas
           </li>
         </ul>
 
@@ -260,7 +267,6 @@
         </button>
       </div>
     </div>
-
     <!-- FOOTER -->
     <footer class="mt-12 pb-6 text-center text-xs text-gray-500">
       <p>TopinGames · Envíos a todo Chile 🇨🇱</p>
