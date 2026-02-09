@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calvo | Baterías 510 Premium</title>
     <link rel="stylesheet" href="/dist/styles.css" />
+    <!-- Google Analytics 4 -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-1Y11ZERFTH"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'G-1Y11ZERFTH')
+    </script>
   </head>
 
   <body class="bg-black text-white overscroll-none scrollbar-none">
@@ -39,6 +52,7 @@
           href="https://www.tiktok.com/@topingames"
           target="_blank"
           aria-label="TikTok"
+          data-social="tiktok"
           class="flex h-12 w-12 items-center justify-center rounded-full border border-primary bg-black shadow-[0_0_20px_rgba(255,215,0,0.45)] transition-all duration-200 ease-out active:scale-95"
         >
           <svg
@@ -58,6 +72,7 @@
           href="https://www.instagram.com/topingames.store"
           target="_blank"
           aria-label="Instagram"
+          data-social="instagram"
           class="flex h-12 w-12 items-center justify-center rounded-full border border-white bg-black shadow-[0_0_20px_rgba(255,255,255,0.25)] transition-all duration-200 ease-out active:scale-95"
         >
           <svg
@@ -77,6 +92,7 @@
           href="https://wa.me/56933611786"
           target="_blank"
           aria-label="WhatsApp"
+          data-social="whatsapp"
           class="flex h-12 w-12 items-center justify-center rounded-full border border-primary bg-black shadow-[0_0_20px_rgba(255,215,0,0.45)] transition-all duration-200 ease-out active:scale-95"
         >
           <svg
@@ -111,6 +127,7 @@
           class="w-full mb-4 rounded-full border border-gray-700 bg-zinc-900 px-6 py-4 text-left text-white shadow-[0_0_30px_rgba(255,255,255,0.20)] transition-all duration-200 ease-out active:scale-95"
           data-open-modal="modal-lapiz"
           data-producto="bateria_lapiz"
+          data-tienda="vape"
         >
           <div class="flex items-center justify-between">
             <span class="text-base font-semibold">Batería Tipo Lápiz 510</span>
@@ -130,6 +147,7 @@
           class="w-full rounded-full border border-primary bg-black px-6 py-4 text-left shadow-[0_0_35px_rgba(255,215,0,0.40)] transition-all duration-200 ease-out active:scale-95"
           data-open-modal="modal-cuadrada"
           data-producto="bateria_cuadrada"
+          data-tienda="vape"
         >
           <div class="flex items-center justify-between">
             <span class="text-base font-semibold">Batería Cuadrada Calvo</span>
@@ -145,7 +163,8 @@
     >
       <div
         class="absolute inset-0 bg-black/90 backdrop-blur-sm"
-        data-close-modal
+        data-close-modal="bateria_lapiz"
+        data-tienda="vape"
       ></div>
 
       <div
@@ -154,7 +173,8 @@
         <button
           type="button"
           class="absolute right-4 top-4 z-10 text-gray-400 hover:text-white transition-colors"
-          data-close-modal
+          data-close-modal="bateria_lapiz"
+          data-tienda="vape"
         >
           ✕
         </button>
@@ -196,6 +216,7 @@
           type="button"
           class="comprar-btn w-full rounded-xl bg-white py-4 text-lg font-bold text-black transition hover:bg-gray-200 active:scale-95"
           data-producto="bateria_lapiz"
+          data-tienda="vape"
           data-link-pago="https://mpago.la/21MZv6w"
         >
           Comprar ahora
@@ -209,7 +230,8 @@
     >
       <div
         class="absolute inset-0 bg-black/90 backdrop-blur-sm"
-        data-close-modal
+        data-close-modal="bateria_cuadrada"
+        data-tienda="vape"
       ></div>
 
       <div
@@ -218,7 +240,8 @@
         <button
           type="button"
           class="absolute right-4 top-4 z-10 text-gray-400 hover:text-white transition-colors"
-          data-close-modal
+          data-close-modal="bateria_cuadrada"
+          data-tienda="vape"
         >
           ✕
         </button>
@@ -261,6 +284,7 @@
           type="button"
           class="comprar-btn w-full rounded-xl bg-primary py-4 text-lg font-bold text-black transition hover:brightness-110 active:scale-95"
           data-producto="bateria_cuadrada"
+          data-tienda="vape"
           data-link-pago="https://mpago.la/26keMhZ"
         >
           Quiero la batería pro

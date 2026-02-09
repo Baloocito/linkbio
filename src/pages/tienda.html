@@ -8,7 +8,7 @@
     <!-- Google Analytics 4 -->
     <script
       async
-      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+      src="https://www.googletagmanager.com/gtag/js?id=G-1Y11ZERFTH"
     ></script>
     <script>
       window.dataLayer = window.dataLayer || []
@@ -53,6 +53,7 @@
         <a
           href="https://www.tiktok.com/@topingames"
           target="_blank"
+          data-social="tiktok"
           aria-label="TikTok"
           class="flex h-12 w-12 items-center justify-center rounded-full border border-magenta bg-black shadow-[0_0_20px_rgba(230,0,126,0.45)] transition-all duration-200 ease-out active:scale-95"
         >
@@ -73,6 +74,7 @@
           href="https://www.instagram.com/topingames.store"
           target="_blank"
           aria-label="Instagram"
+          data-social="instagram"
           class="flex h-12 w-12 items-center justify-center rounded-full border border-teal bg-black shadow-[0_0_20px_rgba(18,161,154,0.45)] transition-all duration-200 ease-out active:scale-95"
         >
           <svg
@@ -92,6 +94,7 @@
           href="https://wa.me/56933611786"
           target="_blank"
           aria-label="WhatsApp"
+          data-social="whatsapp"
           class="flex h-12 w-12 items-center justify-center rounded-full border border-teal bg-black shadow-[0_0_20px_rgba(18,161,154,0.45)] transition-all duration-200 ease-out active:scale-95"
         >
           <svg
@@ -128,6 +131,7 @@
           class="w-full rounded-full border border-teal bg-black px-6 py-4 text-left text-white shadow-[0_0_30px_rgba(18,161,154,0.35)] transition-all duration-200 ease-out active:scale-95"
           data-open-modal="modal-kit-basico"
           data-producto="kit_basico"
+          data-tienda="kits"
         >
           <div class="flex items-center justify-between">
             <span class="text-base font-semibold"> Comprar Kit Básico </span>
@@ -149,6 +153,7 @@
           class="w-full rounded-full border border-magenta bg-black px-6 py-4 text-left text-white shadow-[0_0_35px_rgba(230,0,126,0.45)] transition-all duration-200 ease-out active:scale-95"
           data-open-modal="modal-kit-pro"
           data-producto="kit_pro"
+          data-tienda="kits"
         >
           <div class="flex items-center justify-between">
             <span class="text-base font-semibold"> Comprar Kit Pro </span>
@@ -166,7 +171,8 @@
       <!-- Fondo -->
       <div
         class="absolute inset-0 bg-black/80 backdrop-blur-sm"
-        data-close-modal
+        data-close-modal="kit_basico"
+        data-tienda="kits"
       ></div>
 
       <div
@@ -175,7 +181,8 @@
         <!-- Cerrar -->
         <button
           class="absolute right-4 top-4 text-gray-400 hover:text-white"
-          data-close-modal
+          data-close-modal="kit_basico"
+          data-tienda="kits"
         >
           ✕
         </button>
@@ -217,6 +224,7 @@
         <button
           class="comprar-btn w-full rounded-xl bg-magenta py-4 text-lg font-bold text-white transition active:scale-95"
           data-producto="kit_basico"
+          data-tienda="kits"
           data-link-pago="https://mpago.li/1Edg13f"
         >
           Comprar kit básico
@@ -232,7 +240,8 @@
       <!-- Fondo -->
       <div
         class="absolute inset-0 bg-black/80 backdrop-blur-sm"
-        data-close-modal
+        data-close-modal="kit_pro"
+        data-tienda="kits"
       ></div>
 
       <!-- Caja modal -->
@@ -242,7 +251,8 @@
         <!-- Cerrar -->
         <button
           class="absolute right-4 top-4 text-gray-400 hover:text-white"
-          data-close-modal
+          data-close-modal="kit_pro"
+          data-tienda="kits"
         >
           ✕
         </button>
@@ -288,6 +298,7 @@
         <button
           class="comprar-btn w-full rounded-xl bg-magenta py-4 text-lg font-bold text-white transition active:scale-95"
           data-producto="kit_pro"
+          data-tienda="kits"
           data-link-pago="https://mpago.li/2g9ENed"
         >
           Quiero el kit pro
