@@ -122,15 +122,20 @@
       id="products"
       class="mx-auto max-w-md space-y-6 px-4 pb-12 opacity-0 transition-opacity duration-500"
     >
-      <article>
+      <article class="relative">
         <button
-          class="w-full mb-4 rounded-full border border-gray-700 bg-zinc-900 px-6 py-4 text-left text-white shadow-[0_0_30px_rgba(255,255,255,0.20)] transition-all duration-200 ease-out active:scale-95"
-          data-open-modal="modal-lapiz"
-          data-producto="bateria_lapiz"
+          class="w-full mb-4 rounded-full border border-zinc-700 bg-zinc-900 px-6 py-4 text-left text-white shadow-[0_0_30px_rgba(255,255,255,0.10)] transition-all duration-200 ease-out active:scale-95"
+          data-open-modal="modal-knuckle-slim"
+          data-producto="knuckle_slim_510"
           data-tienda="vape"
         >
           <div class="flex items-center justify-between">
-            <span class="text-base font-semibold">Batería Tipo Lápiz 510</span>
+            <div class="flex flex-col">
+              <span class="text-base font-semibold">Knuckle Edition Slim</span>
+              <span class="text-[10px] text-gray-500"
+                >900mAh + USB-C Fast Charge</span
+              >
+            </div>
             <span class="text-base font-extrabold text-primary">$15.000</span>
           </div>
         </button>
@@ -140,155 +145,265 @@
         <span
           class="absolute -top-2 left-6 z-10 rounded-full bg-primary px-3 py-1 text-[10px] font-bold text-black uppercase tracking-wider"
         >
-          🔋 Larga Duración
+          🔥 MÁXIMA DISCRECIÓN
         </span>
 
         <button
           class="w-full rounded-full border border-primary bg-black px-6 py-4 text-left shadow-[0_0_35px_rgba(255,215,0,0.40)] transition-all duration-200 ease-out active:scale-95"
-          data-open-modal="modal-cuadrada"
-          data-producto="bateria_cuadrada"
+          data-open-modal="modal-calvo-pro"
+          data-producto="calvo_phantom_pro"
           data-tienda="vape"
         >
           <div class="flex items-center justify-between">
-            <span class="text-base font-semibold">Batería Cuadrada Calvo</span>
-            <span class="text-base font-extrabold text-primary">$22.000</span>
+            <div class="flex flex-col">
+              <span class="text-base font-semibold text-white"
+                >Calvo Phantom Pro 510</span
+              >
+              <span class="text-[10px] text-gray-400"
+                >Pantalla OLED + Hidden Case</span
+              >
+            </div>
+            <span class="text-base font-extrabold text-primary">$25.000</span>
           </div>
         </button>
       </article>
     </section>
 
     <div
-      id="modal-lapiz"
+      id="modal-knuckle-slim"
       class="fixed inset-0 z-[999] hidden flex items-center justify-center px-4"
     >
       <div
-        class="absolute inset-0 bg-black/90 backdrop-blur-sm"
-        data-close-modal="bateria_lapiz"
+        class="absolute inset-0 bg-black/95 backdrop-blur-md"
+        data-close-modal="knuckle_slim_510"
         data-tienda="vape"
       ></div>
 
       <div
-        class="modal-box relative w-full max-w-md rounded-2xl bg-zinc-950 p-6 shadow-[0_0_50px_rgba(255,255,255,0.1)] max-h-[90vh] overflow-y-auto scrollbar-none border border-white/5"
+        class="modal-box relative w-full max-w-md rounded-2xl bg-zinc-950 p-6 shadow-[0_0_60px_rgba(255,255,255,0.05)] max-h-[90vh] overflow-y-auto scrollbar-none border border-zinc-800"
       >
         <button
           type="button"
-          class="absolute right-4 top-4 z-10 text-gray-400 hover:text-white transition-colors"
-          data-close-modal="bateria_lapiz"
+          class="absolute right-4 top-4 z-10 text-gray-400"
+          data-close-modal="knuckle_slim_510"
           data-tienda="vape"
         >
           ✕
         </button>
 
-        <h3 class="text-2xl font-extrabold mb-1 text-white">
-          Batería Lápiz 510
+        <h3
+          class="text-2xl font-extrabold mb-1 text-white tracking-tight uppercase"
+        >
+          Knuckle Slim 510
         </h3>
-        <p class="text-sm text-gray-400 mb-4">
-          Discreta, elegante y funcional.
-        </p>
+        <p class="text-xs text-gray-500 mb-4 font-mono">SERIE: K-CORE-900</p>
 
         <div
-          class="mb-6 w-full aspect-[4/5] overflow-hidden rounded-xl border border-zinc-800"
+          class="relative mb-6 w-full aspect-square overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 flex items-center justify-center"
         >
           <img
             src="/assets/img/lapicito.webp"
-            alt="Batería Lápiz"
-            class="w-full h-full object-cover"
+            alt="Knuckle Slim 510"
+            class="w-full h-full object-contain"
           />
+          <span
+            class="absolute top-3 right-3 bg-primary text-[10px] text-black font-bold px-2 py-1 rounded"
+          >
+            MÁXIMA COMPATIBILIDAD
+          </span>
         </div>
 
-        <p class="mb-4 text-2xl font-extrabold text-primary">$15.000 CLP</p>
+        <div class="grid grid-cols-2 gap-3 mb-6">
+          <div class="bg-zinc-900/50 p-3 rounded-lg border border-white/5">
+            <p class="text-[10px] text-gray-500 uppercase">Batería</p>
+            <p class="text-sm font-bold text-white">900mAh (Long Life)</p>
+          </div>
+          <div class="bg-zinc-900/50 p-3 rounded-lg border border-white/5">
+            <p class="text-[10px] text-gray-500 uppercase">Puerto</p>
+            <p class="text-sm font-bold text-white">USB-C Integrado</p>
+          </div>
+        </div>
 
-        <ul class="mb-6 space-y-2 text-sm text-gray-300">
+        <p class="mb-4 text-3xl font-extrabold text-primary">
+          $15.000
+          <span class="text-sm font-normal text-gray-500 text-white/50"
+            >CLP</span
+          >
+        </p>
+
+        <ul class="mb-6 space-y-3 text-sm text-gray-300">
           <li class="flex items-center">
-            <span class="text-primary mr-2">✔</span> Conexión universal 510
-            hilos
+            <span class="text-primary mr-2">🔗</span> **Rosca 510 Universal:**
+            Compatible con el 99% de los cartuchos.
           </li>
           <li class="flex items-center">
-            <span class="text-primary mr-2">✔</span> Voltaje ajustable (3
-            niveles)
+            <span class="text-primary mr-2">⚡</span> **3 Niveles de Voltaje:**
+            Ajusta la potencia según tu preferencia.
           </li>
           <li class="flex items-center">
-            <span class="text-primary mr-2">✔</span> Incluye cargador USB
+            <span class="text-primary mr-2">🔋</span> **Gran Autonomía:**
+            Diseñado para durar varios días con una carga.
+          </li>
+          <li class="flex items-center">
+            <span class="text-primary mr-2">📏</span> **Diseño Ultra-Portable:**
+            Cabe en cualquier bolsillo sin molestar.
           </li>
         </ul>
 
         <button
           type="button"
-          class="comprar-btn w-full rounded-xl bg-white py-4 text-lg font-bold text-black transition hover:bg-gray-200 active:scale-95"
-          data-producto="bateria_lapiz"
+          class="comprar-btn w-full rounded-xl bg-white py-4 text-lg font-bold text-black transition hover:bg-primary hover:text-black active:scale-95"
+          data-producto="knuckle_slim_510"
           data-tienda="vape"
           data-link-pago="https://mpago.la/21MZv6w"
         >
-          Comprar ahora
+          Comprar Knuckle Slim
         </button>
+
+        <p class="mt-4 text-center text-[10px] text-gray-600">
+          *Incluye cable de carga USB-C
+        </p>
       </div>
     </div>
 
     <div
-      id="modal-cuadrada"
+      id="modal-calvo-pro"
       class="fixed inset-0 z-[999] hidden flex items-center justify-center px-4"
     >
       <div
-        class="absolute inset-0 bg-black/90 backdrop-blur-sm"
-        data-close-modal="bateria_cuadrada"
+        class="absolute inset-0 bg-black/95 backdrop-blur-md"
+        data-close-modal="calvo_phantom_pro"
         data-tienda="vape"
       ></div>
 
       <div
-        class="modal-box relative w-full max-w-md rounded-2xl bg-zinc-950 p-6 shadow-[0_0_60px_rgba(251,191,36,0.25)] max-h-[90vh] overflow-y-auto scrollbar-none border border-primary/20"
+        class="modal-box relative w-full max-w-md rounded-2xl bg-zinc-950 p-6 shadow-[0_0_60px_rgba(251,191,36,0.15)] max-h-[90vh] overflow-y-auto scrollbar-none border border-primary/30"
       >
         <button
           type="button"
           class="absolute right-4 top-4 z-10 text-gray-400 hover:text-white transition-colors"
-          data-close-modal="bateria_cuadrada"
+          data-close-modal="calvo_phantom_pro"
           data-tienda="vape"
         >
           ✕
         </button>
 
-        <h3 class="text-2xl font-extrabold mb-1 text-primary">
-          Batería Cuadrada 2200mAh
+        <h3 class="text-2xl font-extrabold mb-1 text-primary tracking-tight">
+          CALVO PHANTOM PRO
         </h3>
-        <p class="text-sm text-gray-400 mb-4">
-          Potencia extrema para usuarios exigentes.
+        <p class="text-sm text-gray-400 mb-4 font-medium">
+          Control total y discreción de grado industrial.
         </p>
 
         <div
-          class="mb-6 w-full aspect-[4/5] overflow-hidden rounded-xl border border-zinc-800"
+          class="relative mb-6 w-full aspect-square overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 flex items-center justify-center"
         >
           <img
             src="/assets/img/vapecuadrado.jpg"
-            alt="Batería Cuadrada"
-            class="w-full h-full object-cover"
+            alt="Calvo Phantom Pro"
+            class="w-full h-full object-contain"
           />
+          <span
+            class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-md text-[10px] text-white px-2 py-1 rounded border border-white/10"
+          >
+            Original Calvo Glass
+          </span>
         </div>
 
-        <p class="mb-4 text-2xl font-extrabold text-white">$22.000 CLP</p>
+        <div class="grid grid-cols-2 gap-3 mb-6">
+          <div class="bg-zinc-900/50 p-3 rounded-lg border border-white/5">
+            <p class="text-[10px] text-gray-500 uppercase">Pantalla</p>
+            <p class="text-sm font-bold text-white">OLED Digital</p>
+          </div>
+          <div class="bg-zinc-900/50 p-3 rounded-lg border border-white/5">
+            <p class="text-[10px] text-gray-500 uppercase">Conexión</p>
+            <p class="text-sm font-bold text-white">USB-C Fast</p>
+          </div>
+        </div>
 
-        <ul class="mb-6 space-y-2 text-sm text-gray-300">
-          <li class="flex items-center">
-            <span class="text-primary mr-2">✔</span> 2200mAh de larga duración
+        <p class="mb-4 text-3xl font-extrabold text-white">
+          $25.000 <span class="text-sm font-normal text-gray-500">CLP</span>
+        </p>
+
+        <ul class="mb-6 space-y-3 text-sm text-gray-300">
+          <li class="flex items-start italic text-xs text-primary mb-2">
+            "El diseño oculto protege el cartucho de golpes y miradas."
           </li>
           <li class="flex items-center">
-            <span class="text-primary mr-2">✔</span> Pantalla digital de carga
+            <span class="text-primary mr-2">⚡</span> Voltaje ajustable (2.8V,
+            3.4V, 3.8V)
           </li>
           <li class="flex items-center">
-            <span class="text-primary mr-2">✔</span> Carga rápida Tipo-C
+            <span class="text-primary mr-2">🔥</span> Función Pre-Heat de 15
+            segundos
           </li>
           <li class="flex items-center">
-            <span class="text-primary mr-2">✔</span> Diseño anti-caídas
+            <span class="text-primary mr-2">🔋</span> Batería de alta densidad
+            con chip de seguridad
+          </li>
+          <li class="flex items-center text-gray-500 text-xs">
+            <span class="mr-2">📦</span> Envío Express en RM | Starken por pagar
+            a Regiones
           </li>
         </ul>
 
         <button
           type="button"
-          class="comprar-btn w-full rounded-xl bg-primary py-4 text-lg font-bold text-black transition hover:brightness-110 active:scale-95"
-          data-producto="bateria_cuadrada"
+          class="comprar-btn w-full rounded-xl bg-primary py-4 text-lg font-bold text-black shadow-lg shadow-primary/20 transition hover:scale-[1.02] active:scale-95"
+          data-producto="calvo_phantom_pro"
           data-tienda="vape"
           data-link-pago="https://mpago.la/26keMhZ"
         >
-          Quiero la batería pro
+          Adquirir Calvo Phantom Pro
         </button>
+      </div>
+    </div>
+    <div
+      id="age-gate"
+      class="fixed inset-0 z-[1000] flex items-center justify-center bg-black px-4"
+    >
+      <div class="max-w-md w-full text-center space-y-8 animate-fadeSlideUp">
+        <div class="flex justify-center">
+          <div
+            class="w-20 h-20 rounded-full border-2 border-primary flex items-center justify-center shadow-[0_0_40px_rgba(251,191,36,0.1)]"
+          >
+            <span class="text-2xl font-black text-primary italic">18+</span>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <h2
+            class="text-3xl font-extrabold text-white tracking-tighter uppercase"
+          >
+            DR. PIPA <span class="text-primary">SELECTION</span>
+          </h2>
+          <p class="text-gray-400 text-sm px-6">
+            Estás ingresando a un espacio exclusivo para mayores de edad.
+            Confirma tu edad para ver el catálogo.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3 px-4">
+          <button
+            id="btn-age-yes"
+            class="w-full py-4 bg-primary text-black font-black rounded-xl hover:bg-white transition-all active:scale-95 shadow-lg shadow-primary/10"
+          >
+            SOY MAYOR DE EDAD
+          </button>
+          <button
+            id="btn-age-no"
+            class="w-full py-2 bg-transparent text-zinc-600 text-[10px] font-bold hover:text-white transition-colors uppercase tracking-widest"
+          >
+            No tengo la edad / Salir
+          </button>
+        </div>
+
+        <p
+          class="text-[9px] text-zinc-700 leading-relaxed uppercase tracking-widest px-8"
+        >
+          DR. PIPA promueve el consumo responsable. Acceso restringido
+          estrictamente a mayores de 18 años.
+        </p>
       </div>
     </div>
     <!-- FOOTER -->

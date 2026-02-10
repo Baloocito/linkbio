@@ -1,28 +1,55 @@
 /**
  * TOPINGAMES - JS Ecosistema Único
- * Maneja: Animaciones, Modales, RRSS y GA4 Tracking
+ * Maneja: Animaciones, Modales, RRSS y GA4 Tracking (Limpio de Red Flags)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initGlobalTracking() // RRSS, Tiendas y Compras
-  initModalLogic() // Apertura, Cierre y View_item
-  initAnimations() // Fade-ins automáticos
+  initGlobalTracking()
+  initModalLogic()
+  initAnimations()
+  initAgeGate()
 })
+function initAgeGate() {
+  const ageGate = document.getElementById('age-gate')
+  const btnYes = document.getElementById('btn-age-yes')
+  const btnNo = document.getElementById('btn-age-no')
 
-/**
- * 1. RASTREO GLOBAL Y REDIRECCIONES
- * Captura clics en RRSS, selección de tienda y botones de pago
- */
+  // Usamos 'drpipa_verified' para no mezclar con otros sitios de TopinGames
+  if (localStorage.getItem('drpipa_verified') === 'true') {
+    if (ageGate) ageGate.style.display = 'none'
+    return
+  }
+
+  btnYes?.addEventListener('click', () => {
+    localStorage.setItem('drpipa_verified', 'true')
+
+    // Animación de salida suave
+    if (ageGate) {
+      ageGate.style.opacity = '0'
+      ageGate.style.transition = 'opacity 0.5s ease'
+      setTimeout(() => {
+        ageGate.style.display = 'none'
+      }, 500)
+    }
+
+    trackEvent('age_verification_drpipa', { result: 'allowed' })
+  })
+
+  btnNo?.addEventListener('click', () => {
+    trackEvent('age_verification_drpipa', { result: 'denied' })
+    window.location.href = 'https://www.google.cl'
+  })
+}
 function initGlobalTracking() {
   document.addEventListener('click', (e) => {
-    // --- CLIC EN TIENDAS (Desde Index) ---
+    // --- CLIC EN TIENDAS ---
     const shopLink = e.target.closest('[data-tienda-link]')
     if (shopLink) {
       trackEvent('select_content', {
         content_type: 'shop_selection',
         item_id: shopLink.dataset.tiendaLink,
       })
-      return // Deja que el enlace siga su curso natural
+      return
     }
 
     // --- CLIC EN REDES SOCIALES ---
@@ -31,10 +58,10 @@ function initGlobalTracking() {
       trackEvent('click_social', {
         platform: socialLink.dataset.social,
       })
-      return // Deja que abra la red social
+      return
     }
 
-    // --- BOTÓN COMPRAR (Dentro de Modales) ---
+    // --- BOTÓN COMPRAR ---
     const buyBtn = e.target.closest('.comprar-btn')
     if (buyBtn) {
       const { linkPago, producto, tienda } = buyBtn.dataset
@@ -42,10 +69,11 @@ function initGlobalTracking() {
       trackEvent('begin_checkout', {
         item_id: producto,
         tienda_origen: tienda,
-        url_destino: linkPago,
+        // No enviamos la URL completa para evitar que procesadores de pago
+        // vean parámetros extraños en el tracking
+        metodo: 'direct_checkout',
       })
 
-      // Delay de seguridad para GA4
       setTimeout(() => {
         window.location.href = linkPago
       }, 200)
@@ -54,12 +82,8 @@ function initGlobalTracking() {
   })
 }
 
-/**
- * 2. LÓGICA DE MODALES
- * Maneja visualización de productos y abandonos
- */
 function initModalLogic() {
-  // ABRIR
+  // ABRIR MODAL
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-open-modal]')
     if (!btn) return
@@ -75,24 +99,22 @@ function initModalLogic() {
     if (!modal) return
 
     const box = modal.querySelector('.modal-box')
-    modal.classList.remove('hidden')
-    modal.classList.add('flex')
+    modal.classList.replace('hidden', 'flex')
     document.body.style.overflow = 'hidden'
     if (box) box.classList.add('animate-modalIn')
   })
 
-  // CERRAR
+  // CERRAR MODAL
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('[data-close-modal]')
     if (!trigger) return
 
+    // Capturamos el ID del producto que se está cerrando para medir "Abandono de Producto"
     const productoCerrado = trigger.dataset.closeModal
-    const tiendaOrigen = trigger.dataset.tienda
 
-    if (productoCerrado) {
+    if (productoCerrado && productoCerrado !== '') {
       trackEvent('modal_close', {
         item_id: productoCerrado,
-        tienda_origen: tiendaOrigen,
       })
     }
 
@@ -102,13 +124,12 @@ function initModalLogic() {
     if (box) {
       box.style.opacity = '0'
       box.style.transform = 'scale(0.95)'
-      box.style.transition = 'all 0.2s ease-in'
+      box.style.transition = 'all 0.15s ease-in'
     }
 
     setTimeout(() => {
       if (modal) {
-        modal.classList.add('hidden')
-        modal.classList.remove('flex')
+        modal.classList.replace('flex', 'hidden')
       }
       if (box) {
         box.classList.remove('animate-modalIn')
@@ -116,20 +137,15 @@ function initModalLogic() {
         box.style.transform = ''
       }
       document.body.style.overflow = ''
-    }, 200)
+    }, 150)
   })
 }
 
-/**
- * 3. ANIMACIONES DE ENTRADA
- * Detecta qué elementos existen en la página actual y los anima
- */
 function initAnimations() {
   const elements = [
     { id: 'hero', delay: 0 },
-    { id: 'cta', delay: 250 }, // Para el index
-    { id: 'products', delay: 250 }, // Para las tiendas
-    { id: 'links', delay: 450 }, // Para el index
+    { id: 'products', delay: 200 },
+    { id: 'cta', delay: 300 },
   ]
 
   elements.forEach((el) => {
@@ -142,13 +158,9 @@ function initAnimations() {
   })
 }
 
-/**
- * HELPER: Enviar a GA4 y Console (para debug)
- */
 function trackEvent(name, params) {
   if (window.gtag) {
     gtag('event', name, params)
   }
-  // Descomenta la siguiente línea para ver los eventos en la consola del navegador
-  // console.log(`[GA4 EVENT]: ${name}`, params);
+  // console.log(`[GA4]: ${name}`, params); // Activar solo en local para pruebas
 }
