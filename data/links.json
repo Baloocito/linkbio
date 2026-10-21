@@ -2,9 +2,12 @@
   "profile": {
     "name": "Xiombo",
     "brand": "TopinGames",
-    "tagline": "Gamer hace 30 años. Comerciante de oficio.",
-    "bio": "Viví y trabajé los videojuegos. Hoy construyo juegos, cazo ofertas y vendo lo que vale la pena.",
-    "chips": ["30 años jugando", "Comerciante", "Santiago · CL"]
+    "tagline": "Desconecta de la pega, conecta con TopinGames.",
+    "chips": [
+      "Gamer",
+      "Programador",
+      "Diseñador"
+    ]
   },
   "featured": {
     "id": "switch",
@@ -35,7 +38,10 @@
       "url": "https://www.instagram.com/xiombo",
       "color": "teal",
       "icon": "gamepad",
-      "progress": { "label": "Fase 1", "value": 25 }
+      "progress": {
+        "label": "Fase 1",
+        "value": 25
+      }
     },
     {
       "id": "colabora",
@@ -49,8 +55,23 @@
     }
   ],
   "socials": [
-    { "id": "ig", "label": "Instagram", "handle": "@xiombo", "url": "https://www.instagram.com/xiombo" },
-    { "id": "tiktok", "label": "TikTok", "handle": "@topingames", "url": "https://www.tiktok.com/@topingames" },
-    { "id": "tg", "label": "Telegram", "handle": "TopinSaleSwitch", "url": "https://t.me/TopinSaleSwitch" }
+    {
+      "id": "ig",
+      "label": "Instagram",
+      "handle": "@xiombo",
+      "url": "https://www.instagram.com/xiombo"
+    },
+    {
+      "id": "tiktok",
+      "label": "TikTok",
+      "handle": "@topingames",
+      "url": "https://www.tiktok.com/@topingames"
+    },
+    {
+      "id": "tg",
+      "label": "Telegram",
+      "handle": "TopinSaleSwitch",
+      "url": "https://t.me/TopinSaleSwitch"
+    }
   ]
 }

@@ -37,7 +37,9 @@
   function render(data) {
     const p = data.profile;
     $('[data-bind="tagline"]').textContent = p.tagline;
-    $('[data-bind="bio"]').textContent = p.bio;
+    const bio = $('[data-bind="bio"]');
+    bio.textContent = p.bio || '';
+    bio.hidden = !p.bio;
     $('[data-bind="chips"]').innerHTML = p.chips.map((c) => `<li>${esc(c)}</li>`).join('');
 
     const f = data.featured;
