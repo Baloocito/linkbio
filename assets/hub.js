@@ -17,7 +17,8 @@
   }
   src = String(src).toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 24) || 'direct';
 
-  const go = (id) => `/go/${encodeURIComponent(id)}?src=${encodeURIComponent(src)}`;
+  const PREVIEW = window.HUB_DATA ? new Map() : null;
+  const go = (id) => (PREVIEW && PREVIEW.get(id)) || `/go/${encodeURIComponent(id)}?src=${encodeURIComponent(src)}`;
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
   const ICONS = {
@@ -71,17 +72,10 @@
   }
 
   function reveal() {
-    const items = document.querySelectorAll('.reveal:not(.in)');
-    const show = (el, i) => setTimeout(() => {
-      el.classList.add('in');
-      el.querySelectorAll('.fill').forEach((b) => { b.style.width = b.dataset.to + '%'; });
-    }, i * 90);
-    if (!('IntersectionObserver' in window)) return items.forEach(show);
-    let n = 0;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { show(e.target, n++); io.unobserve(e.target); } });
-    }, { rootMargin: '0px 0px -8% 0px' });
-    items.forEach((el) => io.observe(el));
+    document.querySelectorAll('.reveal').forEach((el, i) => el.style.setProperty('--i', i));
+    requestAnimationFrame(() => setTimeout(() => {
+      document.querySelectorAll('.fill').forEach((b) => { b.style.width = b.dataset.to + '%'; });
+    }, 400));
   }
 
   function ago(iso) {
@@ -114,6 +108,12 @@
     document.querySelectorAll('.card.pressed').forEach((c) => c.classList.remove('pressed'));
   }, { passive: true }));
 
+  if (window.HUB_DATA) {
+    const d = window.HUB_DATA;
+    [d.featured, ...d.paths, ...d.socials].forEach((x) => PREVIEW.set(x.id, x.url));
+    render(d);
+    return;
+  }
   fetch('/data/links.json')
     .then((r) => r.json())
     .then(render)

@@ -10,7 +10,7 @@
   --shadow: 6px;
   --radius: 14px;
   --display: 'Archivo Black', 'Arial Black', system-ui, sans-serif;
-  --body: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --body: 'Rubik', system-ui, -apple-system, sans-serif;
   --pixel: 'Press Start 2P', ui-monospace, monospace;
 }
 
@@ -41,7 +41,9 @@ img { display: block; max-width: 100%; }
 .wrap {
   max-width: 480px;
   margin: 0 auto;
-  padding: max(14px, env(safe-area-inset-top)) 18px calc(28px + env(safe-area-inset-bottom));
+  padding-block: max(14px, env(safe-area-inset-top, 0px)) calc(28px + env(safe-area-inset-bottom, 0px));
+  padding-left: max(18px, env(safe-area-inset-left, 0px));
+  padding-right: max(18px, env(safe-area-inset-right, 0px));
 }
 
 .pixel { font-family: var(--pixel); font-size: 9px; letter-spacing: .06em; line-height: 1.6; }
@@ -169,8 +171,8 @@ img { display: block; max-width: 100%; }
 .foot { display: grid; justify-items: center; gap: 8px; margin-top: 36px; color: var(--muted); font-size: 12px; text-align: center; }
 
 /* Entrada */
-.reveal { opacity: 0; transform: translateY(14px); }
-.reveal.in { opacity: 1; transform: none; transition: opacity .5s ease, transform .5s cubic-bezier(.2,.8,.2,1); }
+.reveal { animation: rise .5s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i, 0) * 80ms); }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
 
 @keyframes blink { 50% { opacity: .2; } }
 @keyframes float { 50% { transform: translateY(-6px); } }
@@ -179,5 +181,4 @@ img { display: block; max-width: 100%; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .reveal { opacity: 1; transform: none; }
 }
