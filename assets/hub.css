@@ -5,6 +5,7 @@
   --muted: #A9A9B8;
   --teal: #1DB5A8;
   --pink: #EC1C7A;
+  --yellow: #FFE14D;
   --black: #08080B;
   --line: 3px;
   --shadow: 6px;
@@ -65,8 +66,26 @@ img { display: block; max-width: 100%; }
   margin-top: 16px;
   text-shadow: 4px 4px 0 var(--pink);
 }
-.brand { font-family: var(--display); font-size: 18px; color: var(--teal); margin-top: 6px; letter-spacing: .02em; }
-.brand span { color: var(--muted); margin-right: 4px; }
+.gg { margin-top: 18px; }
+.gg-badge {
+  display: inline-flex; align-items: baseline; gap: .55em;
+  font-family: var(--pixel); font-size: 18px; line-height: 1;
+  padding: 10px 14px 9px;
+  background: var(--black); color: var(--yellow);
+  border: 3px solid var(--pink); border-radius: 4px;
+  box-shadow: 4px 4px 0 var(--teal);
+  text-shadow: 2px 0 0 var(--pink), -2px 0 0 var(--teal);
+  transform: rotate(-4deg);
+  animation: gg-in .6s steps(6) .3s both, gg-glitch 4s steps(1) 1.5s infinite;
+}
+.gg-badge b { color: var(--ink); font-weight: 400; animation: blink .8s steps(2) infinite; }
+@keyframes gg-in { 0% { transform: rotate(-4deg) scale(0); } 60% { transform: rotate(6deg) scale(1.25); } 100% { transform: rotate(-4deg) scale(1); } }
+@keyframes gg-glitch {
+  0%, 90%, 100% { transform: rotate(-4deg); }
+  92% { transform: rotate(-4deg) translate(-3px, 1px); text-shadow: 3px 0 0 var(--pink), -3px 0 0 var(--teal); }
+  94% { transform: rotate(-2deg) translate(2px, -1px); }
+  96% { transform: rotate(-6deg) skewX(8deg); }
+}
 .tagline { font-weight: 700; font-size: 17px; margin-top: 16px; }
 .bio { color: var(--muted); font-size: 15px; margin: 6px auto 0; max-width: 34ch; }
 .chips { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px; }
