@@ -36,7 +36,6 @@
 
   function render(data) {
     const p = data.profile;
-    $('[data-bind="tagline"]').textContent = p.tagline;
     const bio = $('[data-bind="bio"]');
     bio.textContent = p.bio || '';
     bio.hidden = !p.bio;
