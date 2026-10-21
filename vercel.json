@@ -1,12 +1,13 @@
 {
+  "buildCommand": "node scripts/check.mjs",
+  "outputDirectory": ".",
+  "cleanUrls": true,
   "rewrites": [
-    {
-      "source": "/tiendakit",
-      "destination": "/src/pages/tienda.html"
-    },
-    {
-      "source": "/tienda-vape",
-      "destination": "/src/pages/tienda-vape.html"
-    }
+    { "source": "/go/:id", "destination": "/api/go?id=:id" },
+    { "source": "/qr", "destination": "/?src=qr" }
+  ],
+  "headers": [
+    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }] },
+    { "source": "/data/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=300, stale-while-revalidate=86400" }] }
   ]
 }
